@@ -33,7 +33,7 @@
   
   onMounted(async () => {
     try {
-        const res = await fetch('http://localhost:3000/api/disponibilite/get', {
+        const res = await fetch('/api/disponibilite/get', {
             headers: {
                 'ngrok-skip-browser-warning': 'true'
             }
