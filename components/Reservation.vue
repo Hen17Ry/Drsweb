@@ -125,7 +125,6 @@ const envoyerReservation = async () => {
       messageSucces.value = ''
     }, 3000)
   } catch (error) {
-    console.error(error)
     messageSucces.value = "Échec de l'envoi de la réservation."
     setTimeout(() => {
       messageSucces.value = ''
@@ -145,7 +144,6 @@ const openPayment = () => {
 }
 
 const handlePaymentSuccess = (response) => {
-    console.log('Paiement réussi:', response)
     envoyerReservation()
   }
 

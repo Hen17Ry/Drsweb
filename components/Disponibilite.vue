@@ -41,7 +41,6 @@
       const data = await res.json()
       disponibilites.value = data
     } catch (err) {
-      console.error('Erreur lors du chargement:', err)
     } finally {
       loading.value = false
     }
