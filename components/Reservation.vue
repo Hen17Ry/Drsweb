@@ -1,83 +1,177 @@
 <template>
-    <section class="reservation-section">
-        <div class="overlay">
-            <div class="reservation-container">
-                
-                <!-- Left Side -->
-                <div class="reservation-left">
-                <p class="subtitle">— Contactez Nous</p>
-                <h2>
-                    Réservez Une Table<br/>Ou Commandez Directement
-                </h2>
-                <p class="description">
-                    Profitez d'un moment inoubliable dans notre cadre chaleureux. Réservez votre place ou commandez depuis chez vous.
-                </p>
-
-                <div class="contact-boxes">
-                    <div class="contact-box">
-                    <div class="icon">&#9742;</div>
-                    <div>
-                        <p class="label">Téléphone</p>
-                        <p class="value">+229 01-97-27-22-35</p>
-                    </div>
-                    </div>
-
-                    <div class="contact-box">
-                    <div class="icon">&#9993;</div>
-                    <div>
-                        <p class="label">Email</p>
-                        <p class="value">drsguesthouse0@gmail.com</p>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Right Side -->
-                <div class="reservation-right">
-                <h3>Réservation de Table</h3>
-                <form class="form" @submit.prevent="openPayment">
-                    <div class="row">
-                        <input type="text" placeholder="Votre Nom*" v-model="form.nom" required />
-                        <input type="email" placeholder="Votre Email" v-model="form.email" />
-                    </div>
-                    <div class="row">
-                        <input type="tel" placeholder="Votre Téléphone" v-model="form.telephone" />
-                        <input type="text" placeholder="Nombre de personnes" v-model="form.nombrepersonne" />
-                    </div>
-                    <div class="row">
-                        <input type="date" v-model="form.jour" />
-                        <input type="time" v-model="form.heure" />
-                    </div>
-                    <select v-model="form.option" required>
-                        <option disabled value="">Choisissez une option</option>
-                        <option value="nuitée">Nuitée</option>
-                        <option value="flash">Flash</option>
-                        <option value="anniverssaire">Anniverssaire</option>
-                    </select>
-                    <select v-model="form.chambre" required>
-                        <option disabled value="">Choisissez une Chambre</option>
-                        <option value="Romance">Romance</option>
-                        <option value="Jouvence">Jouvence</option>
-                        <option value="Bonheur">Bonheur</option>
-                        <option value="Amour">Amour</option>
-                        <option value="Désir">Désir</option>
-                    </select>
-                    <textarea placeholder="Message..." v-model="form.message"></textarea>
-                    <button type="submit">Réserver Maintenant</button>
-                </form>
-
-                </div>
-
+  <section id="reservation" class="reservation-section">
+    <div class="reservation-background">
+      <div class="container">
+        <div class="reservation-wrapper animate-on-scroll">
+          
+          <!-- Left Side -->
+          <div class="reservation-left">
+            <div class="section-header">
+              <h6 class="subtitle">Contactez-nous</h6>
+              <h2 class="section-title">Réservez Votre Séjour</h2>
+              <p class="section-intro">
+                Profitez d'un moment inoubliable dans notre cadre chaleureux. Réservez votre chambre dès maintenant.
+              </p>
             </div>
+            
+            <div class="contact-info">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Téléphone</h4>
+                  <p>+229 01-97-27-22-35</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p>drsguesthouse0@gmail.com</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Adresse</h4>
+                  <p>Cotonou, Bénin</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Side - Form -->
+          <div class="reservation-right">
+            <div class="form-header">
+              <h3>Réservation</h3>
+            </div>
+            
+            <form class="reservation-form" @submit.prevent="openPayment">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="nom">Nom Complet*</label>
+                  <input 
+                    type="text" 
+                    id="nom" 
+                    v-model="form.nom" 
+                    placeholder="Votre nom"
+                    required 
+                  />
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    v-model="form.email" 
+                    placeholder="Votre email"
+                  />
+                </div>
+                
+                <div class="form-group">
+                  <label for="telephone">Téléphone*</label>
+                  <input 
+                    type="tel" 
+                    id="telephone" 
+                    v-model="form.telephone" 
+                    placeholder="Votre numéro"
+                    required
+                  />
+                </div>
+                
+                <div class="form-group">
+                  <label for="nombrepersonne">Nombre de personnes</label>
+                  <input 
+                    type="number" 
+                    id="nombrepersonne" 
+                    v-model="form.nombrepersonne" 
+                    placeholder="Nombre de personnes"
+                    min="1"
+                  />
+                </div>
+                
+                <div class="form-group">
+                  <label for="jour">Date</label>
+                  <input 
+                    type="date" 
+                    id="jour" 
+                    v-model="form.jour" 
+                  />
+                </div>
+                
+                <div class="form-group">
+                  <label for="heure">Heure</label>
+                  <input 
+                    type="time" 
+                    id="heure" 
+                    v-model="form.heure" 
+                  />
+                </div>
+                
+                <div class="form-group">
+                  <label for="option">Type de séjour*</label>
+                  <select id="option" v-model="form.option" required>
+                    <option disabled value="">Choisissez une option</option>
+                    <option value="nuitée">Nuitée</option>
+                    <option value="flash">Flash</option>
+                    <option value="anniverssaire">Anniversaire</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="chambre">Chambre*</label>
+                  <select id="chambre" v-model="form.chambre" required>
+                    <option disabled value="">Choisissez une chambre</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Jouvence">Jouvence</option>
+                    <option value="Bonheur">Bonheur</option>
+                    <option value="Amour">Amour</option>
+                    <option value="Désir">Désir</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea 
+                  id="message" 
+                  v-model="form.message" 
+                  placeholder="Votre message ou demandes spéciales"
+                  rows="4"
+                ></textarea>
+              </div>
+              
+              <button type="submit" class="submit-button">
+                <span>Réserver maintenant</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+          
         </div>
-        <div v-if="messageSucces" class="notification">
-            {{ messageSucces }}
-        </div>
-    </section>
+      </div>
+    </div>
+    
+    <!-- Notification -->
+    <Transition name="fade">
+      <div v-if="messageSucces" class="notification" :class="{ 'success': isSuccess, 'error': !isSuccess }">
+        <i :class="isSuccess ? 'fas fa-check-circle' : 'fas fa-exclamation-circle'"></i>
+        <p>{{ messageSucces }}</p>
+      </div>
+    </Transition>
+  </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const form = ref({
   nom: '',
@@ -88,12 +182,14 @@ const form = ref({
   heure: '',
   option: '',
   chambre: '',
-  message: '',
-})
-const messageSucces = ref('')
-let openKkiapayWidget = null
-let addKkiapayListener = null
-let removeKkiapayListener = null
+  message: ''
+});
+
+const messageSucces = ref('');
+const isSuccess = ref(true);
+let openKkiapayWidget = null;
+let addKkiapayListener = null;
+let removeKkiapayListener = null;
 
 const envoyerReservation = async () => {
   try {
@@ -103,11 +199,14 @@ const envoyerReservation = async () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(form.value),
-    })
+    });
 
-    if (!response.ok) throw new Error('Erreur lors de l’envoi')
+    if (!response.ok) throw new Error('Erreur lors de l\'envoi');
 
-    messageSucces.value = 'Réservation envoyée avec succès !'
+    messageSucces.value = 'Réservation envoyée avec succès !';
+    isSuccess.value = true;
+    
+    // Reset form
     form.value = {
       nom: '',
       email: '',
@@ -117,212 +216,355 @@ const envoyerReservation = async () => {
       heure: '',
       option: '',
       chambre: '',
-      message: '',
-    }
+      message: ''
+    };
 
-    // Masquer après 3 secondes
+    // Hide notification after 3 seconds
     setTimeout(() => {
-      messageSucces.value = ''
-    }, 3000)
+      messageSucces.value = '';
+    }, 4000);
   } catch (error) {
-    messageSucces.value = "Échec de l'envoi de la réservation."
+    messageSucces.value = "Échec de l'envoi de la réservation.";
+    isSuccess.value = false;
+    
     setTimeout(() => {
-      messageSucces.value = ''
-    }, 3000)
+      messageSucces.value = '';
+    }, 4000);
   }
-}
+};
 
 const openPayment = () => {
-    openKkiapayWidget({
-      amount: 2000,
-      api_key: '1ff73100282511f096167dd95d93ba59',
-      sandbox: true,
-      name: form.nom,
-      phone: form.telephone,
-      email: form.email,
-    })
-}
+  openKkiapayWidget({
+    amount: 2000,
+    api_key: '1ff73100282511f096167dd95d93ba59',
+    sandbox: true,
+    name: form.value.nom,
+    phone: form.value.telephone,
+    email: form.value.email,
+  });
+};
 
 const handlePaymentSuccess = (response) => {
-    envoyerReservation()
-  }
+  envoyerReservation();
+};
 
 onMounted(async () => {
-    const kkiapay = await import('kkiapay')
-    openKkiapayWidget = kkiapay.openKkiapayWidget
-    addKkiapayListener = kkiapay.addKkiapayListener
-    removeKkiapayListener = kkiapay.removeKkiapayListener
+  try {
+    const kkiapay = await import('kkiapay');
+    openKkiapayWidget = kkiapay.openKkiapayWidget;
+    addKkiapayListener = kkiapay.addKkiapayListener;
+    removeKkiapayListener = kkiapay.removeKkiapayListener;
 
-    addKkiapayListener('success', handlePaymentSuccess)
-  })
+    addKkiapayListener('success', handlePaymentSuccess);
+  } catch (error) {
+    console.error("Erreur lors du chargement de Kkiapay:", error);
+  }
+});
 
-  onBeforeUnmount(() => {
-    if (removeKkiapayListener) {
-      removeKkiapayListener('success', handlePaymentSuccess)
-    }
-  })
-
+onBeforeUnmount(() => {
+  if (removeKkiapayListener) {
+    removeKkiapayListener('success', handlePaymentSuccess);
+  }
+});
 </script>
 
+<style scoped lang="scss">
+.reservation-section {
+  padding: 6rem 0;
+  position: relative;
+}
 
-<style scoped>
-    .reservation-section {
-    background-image: url('/reservation-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 80px 0;
-    position: relative;
-    font-family: 'Segoe UI', sans-serif;
-    }
-    .overlay {
-    padding: 60px 20px;
-    }
-    .reservation-container {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
+.reservation-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/reservation-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 4rem 0;
+}
+
+.reservation-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.reservation-left {
+  color: white;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  line-height: 1.3;
+  position: relative;
+  margin-bottom: 1.5rem;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e51919;
+  }
+}
+
+.section-intro {
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.contact-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: rgba(229, 25, 25, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  i {
+    font-size: 1.25rem;
     color: white;
-    }
-    .reservation-left {
-    flex: 1;
-    min-width: 300px;
-    }
-    .subtitle {
-    text-transform: uppercase;
-    font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 8px;
-    }
-    .reservation-left h2 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    line-height: 1.4;
-    }
-    .description {
-    font-size: 16px;
-    color: #e0e0e0;
-    margin-bottom: 30px;
-    }
-    .contact-boxes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    }
-    .contact-box {
-    background: white;
-    color: #333;
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    border-radius: 10px;
-    flex: 1;
-    min-width: 250px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .icon {
-    background: #f44336;
-    color: white;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-right: 15px;
-    }
-    .label {
+  }
+}
+
+.contact-text {
+  h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
-    }
-    .value {
-    font-size: 14px;
-    }
+  }
+  
+  p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+}
 
-    /* Right form */
-    .reservation-right {
-    flex: 1;
-    background: white;
-    color: #333;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    min-width: 320px;
-    }
-    .reservation-right h3 {
+.reservation-right {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
+  background-color: #e51919;
+  padding: 1.5rem 2rem;
+  
+  h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
     text-align: center;
-    margin-bottom: 25px;
-    font-size: 24px;
-    color: #f44336;
-    }
-    .form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    }
-    .form .row {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    }
-    .form input,
-    .form textarea,
-    .form select {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .form input:focus,
-    .form textarea:focus,
-    .form select:focus {
-    border-color: #f44336;
-    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
-    }
-    textarea {
-    resize: vertical;
-    min-height: 80px;
-    }
-    button {
-    background: #f44336;
-    color: white;
-    border: none;
-    padding: 14px;
+  }
+}
+
+.reservation-form {
+  padding: 2.5rem 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  
+  label {
+    display: block;
+    font-size: 0.9rem;
     font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #eee;
     border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    background-color: #f9f9f9;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    
+    &:focus {
+      outline: none;
+      border-color: #e51919;
+      box-shadow: 0 0 0 3px rgba(229, 25, 25, 0.1);
+      background-color: white;
     }
-    button:hover {
-    background: #d32f2f;
+    
+    &::placeholder {
+      color: #aaa;
     }
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+}
 
-    .notification {
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #f44336;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 8px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        z-index: 1000;
-        transition: opacity 0.3s ease;
-        }
+.submit-button {
+  background-color: #e51919;
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  
+  i {
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    background-color: #d31717;
+    
+    i {
+      transform: translateX(5px);
+    }
+  }
+}
 
+.notification {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-width: 400px;
+  
+  &.success {
+    background-color: #10b981;
+  }
+  
+  &.error {
+    background-color: #ef4444;
+  }
+  
+  i {
+    font-size: 1.5rem;
+  }
+  
+  p {
+    margin: 0;
+    line-height: 1.5;
+  }
+}
 
-    @media (max-width: 768px) {
-    .reservation-container {
-        flex-direction: column;
-    }
-    .form .row {
-        flex-direction: column;
-    }
-    }
+// Transitions
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+// Media queries
+@media (max-width: 992px) {
+  .reservation-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .reservation-left {
+    order: 1;
+  }
+  
+  .reservation-right {
+    order: 0;
+  }
+  
+  .contact-info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  
+  .contact-item {
+    flex: 1 0 calc(50% - 1.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .reservation-section {
+    padding: 4rem 0;
+  }
+  
+  .reservation-background {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+  }
+  
+  .notification {
+    top: auto;
+    bottom: 2rem;
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .reservation-form {
+    padding: 1.5rem;
+  }
+  
+  .form-header {
+    padding: 1.25rem;
+  }
+}
 </style>

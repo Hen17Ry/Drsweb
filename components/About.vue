@@ -1,142 +1,311 @@
 <template>
-    <section class="about-section">
-        <div class="container">
-            <div class="content-wrapper">
-                <!-- Colonne gauche -->
-                <div class="left-content">
-                    <h6 class="sub-title">À propos de nous</h6>
-                    <h2 class="main-title">Vivez Un Séjour <br> Inoubliable Avec DRS <br> Guest House</h2>
-                    <p class="description">
-                        Bienvenue à <strong>DRS Guest House</strong>, une résidence d’exception où confort et praticité
-                        s’allient pour répondre à vos besoins. Nous proposons des studios meublés élégants, chacun équipé d’un
-                        garage privé, idéal pour vos séjours de courte ou longue durée, qu’ils soient professionnels ou personnels.
-                    </p>
-                    <p class="description">
-                        Profitez d’un cadre moderne et chaleureux, conçu pour offrir une expérience unique. Nos tarifs flexibles
-                        s’adaptent à toutes les occasions, que ce soit pour un week-end détente, un voyage d’affaires, ou des
-                        événements spéciaux. Chez DRS Guest House, nous mettons un point d’honneur à rendre votre séjour
-                        mémorable.
-                    </p>
-
-                    <!-- Grille d'images -->
-                    <div class="image-grid">
-                        <img src="public/drs/5.jpg" alt="Salon" />
-                        <img src="public/drs/1.jpg" alt="Chambre 1" />
-                        <img src="public/drs/9.jpg" alt="Chambre 2" />
-                    </div>
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-wrapper animate-on-scroll">
+        <!-- Left Column -->
+        <div class="about-left">
+          <div class="section-header">
+            <h6 class="subtitle">À propos de nous</h6>
+            <h2 class="section-title">Vivez Un Séjour Inoubliable<br> Avec DRS Guest House</h2>
+          </div>
+          
+          <div class="about-content">
+            <p class="about-text">
+              Bienvenue à <strong>DRS Guest House</strong>, une résidence d'exception où confort et praticité
+              s'allient pour répondre à vos besoins. Nous proposons des studios meublés élégants, chacun équipé d'un
+              garage privé, idéal pour vos séjours de courte ou longue durée, qu'ils soient professionnels ou personnels.
+            </p>
+            <p class="about-text">
+              Profitez d'un cadre moderne et chaleureux, conçu pour offrir une expérience unique. Nos tarifs flexibles
+              s'adaptent à toutes les occasions, que ce soit pour un week-end détente, un voyage d'affaires, ou des
+              événements spéciaux.
+            </p>
+            
+            <div class="features">
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-bed"></i>
                 </div>
-
-                <!-- Colonne droite -->
-                <div class="right-image">
-                    <div class="video-thumbnail">
-                        <img src="public/drs/2.jpg" alt="Vidéo présentation" />
-                        <a href="https://youtu.be/X66tNMH7Q7A" target="_blank" class="play-button">
-                        <i class="fa fa-play"></i>
-                        </a>
-                    </div>
+                <div class="feature-text">
+                  <h4>Confort Premium</h4>
+                  <p>Des chambres luxueuses avec tout le confort moderne</p>
                 </div>
+              </div>
+              
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-car"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Garage Privé</h4>
+                  <p>Un espace sécurisé pour votre véhicule</p>
+                </div>
+              </div>
             </div>
+          </div>
+          
+          <!-- Gallery Grid -->
+          <div class="gallery-grid">
+            <div class="gallery-item gallery-item-1">
+              <img src="/drs/5.jpg" alt="Salon" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-item gallery-item-2">
+              <img src="/drs/1.jpg" alt="Chambre 1" class="gallery-img" loading="lazy" />
+            </div>
+            <div class="gallery-item gallery-item-3">
+              <img src="/drs/9.jpg" alt="Chambre 2" class="gallery-img" loading="lazy" />
+            </div>
+          </div>
         </div>
-    </section>
+        
+        <!-- Right Column -->
+        <div class="about-right animate-on-scroll">
+          <div class="video-thumbnail">
+            <img src="/drs/2.jpg" alt="Vidéo présentation" class="thumbnail-img" loading="lazy" />
+            <a href="https://youtu.be/X66tNMH7Q7A" target="_blank" class="play-button">
+              <i class="fa fa-play"></i>
+            </a>
+            <div class="video-caption">
+              <span>Découvrez DRS Guest House</span>
+            </div>
+          </div>
+          
+          <div class="testimonial">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">
+              Une expérience exceptionnelle dans un cadre magnifique. Le service est impeccable et l'accueil chaleureux.
+            </p>
+            <div class="testimonial-author">
+              <span class="author-name">Henry GOSSOU</span>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">
+              Une expérience exceptionnelle dans un cadre magnifique. Le service est impeccable et l'accueil chaleureux.
+            </p>
+            <div class="testimonial-author">
+              <span class="author-name">Théophile SOSSA</span>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
-
 <script setup>
+import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+
+onMounted(() => {
+  // Animation for staggered features
+  gsap.from('.feature', {
+    y: 30,
+    opacity: 0,
+    stagger: 0.2,
+    duration: 0.8,
+    scrollTrigger: {
+      trigger: '.features',
+      start: 'top 80%',
+    }
+  });
+  
+  // Animation for gallery items
+  gsap.from('.gallery-item', {
+    y: 40,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.8,
+    scrollTrigger: {
+      trigger: '.gallery-grid',
+      start: 'top 80%',
+    }
+  });
+});
 </script>
 
-
-<style scoped>
-   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
-   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-   @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
-
+<style scoped lang="scss">
 .about-section {
-  padding: 80px 20px;
-  background: #fff;
-}
-
-.about-section .container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.content-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 40px;
-}
-
-.left-content {
-  flex: 1 1 55%;
-}
-
-.right-image {
-  flex: 1 1 40%;
-  display: flex;
-  justify-content: center;
-}
-
-.sub-title {
-  color: #ff3e3e;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-.main-title {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  line-height: 1.3;
-}
-
-.description {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Grille d'images responsive horizontale */
-.image-grid {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-  overflow-x: auto;
-  flex-wrap: nowrap;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
-}
-
-.image-grid img {
-  flex: 0 0 auto;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s;
-  scroll-snap-align: start;
-}
-
-.image-grid img:hover {
-  transform: scale(1.05);
-}
-
-/* Vidéo miniature */
-.video-thumbnail {
+  padding: 6rem 0;
+  background-color: white;
   position: relative;
-  max-width: 100%;
-  border-radius: 16px;
   overflow: hidden;
 }
 
-.video-thumbnail img {
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #e51919;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  line-height: 1.3;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e51919;
+  }
+}
+
+.about-content {
+  margin-bottom: 2.5rem;
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 1.5rem;
+  
+  strong {
+    color: #333;
+  }
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(229, 25, 25, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  i {
+    font-size: 1.5rem;
+    color: #e51919;
+  }
+}
+
+.feature-text {
+  h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+    
+    .gallery-img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.gallery-item-1 {
+  grid-column: 1 / 2;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-item-2 {
+  grid-column: 2 / 3;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-item-3 {
+  grid-column: 3 / 4;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.video-thumbnail {
+  position: relative;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail-img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .play-button {
@@ -144,67 +313,153 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: red;
-  color: #fff;
-  padding: 20px;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(229, 25, 25, 0.9);
   border-radius: 50%;
-  font-size: 24px;
-  text-align: center;
-  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: pulse 2s infinite;
+  }
+  
+  &:hover {
+    background-color: #e51919;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
-.play-button:hover {
-  background: #e60000;
+.video-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 1.5rem;
+  color: white;
+  font-weight: 500;
 }
 
-/* Responsive pour tablettes */
+.testimonial {
+  background-color: #f9f9f9;
+  padding: 2.5rem;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.quote-mark {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 5rem;
+  font-family: 'Playfair Display', serif;
+  color: rgba(229, 25, 25, 0.1);
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author-name {
+  font-weight: 600;
+}
+
+.stars {
+  color: #e51919;
+  font-size: 0.9rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+// Media queries
 @media (max-width: 992px) {
-  .content-wrapper {
+  .about-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .play-button {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .gallery-item-3 {
+    grid-column: 1 / 3;
+  }
+  
+  .testimonial {
+    padding: 2rem 1.5rem;
+  }
+  
+  .testimonial-author {
     flex-direction: column;
-  }
-
-  .left-content, .right-image {
-    flex: 1 1 100%;
-  }
-
-  .main-title {
-    font-size: 26px;
-  }
-
-  .image-grid {
-    justify-content: flex-start;
-  }
-
-  .image-grid img {
-    width: 160px;
-    height: 160px;
-  }
-
-  .play-button {
-    padding: 18px;
-    font-size: 20px;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
-
-/* Responsive pour mobiles */
-@media (max-width: 600px) {
-  .main-title {
-    font-size: 22px;
-  }
-
-  .description {
-    font-size: 14px;
-  }
-
-  .image-grid img {
-    width: 130px;
-    height: 130px;
-  }
-
-  .play-button {
-    padding: 15px;
-    font-size: 18px;
-  }
-}
-
 </style>

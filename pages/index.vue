@@ -4,7 +4,7 @@
   <Appartement id="appart" />
   <Disponibilite id="disponibilite" />
   <Tarif id="tarif" />
-  <Reservation id="reserve" />
+  <Reservation id="reservation" />
 </template>
   
 <script setup>

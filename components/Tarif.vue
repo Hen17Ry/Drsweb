@@ -1,202 +1,320 @@
 <template>
-    <section>
-        <div class="background">
-            <div class="container">
-                <div class="panel pricing-table">
-                
-                <div class="pricing-plan">
-                    <img src="/flash.svg" alt="" class="pricing-img">
-                    <h2 class="pricing-header">Flash</h2>
-                    <ul class="pricing-features">
-                    <li class="pricing-features-item">5H de temps</li>
-                    <li class="pricing-features-item">Sleeps after 30 mins of inactivity</li>
-                    </ul>
-                    <span class="pricing-price">10.000 FCFA</span>
-                    <a href="#/" class="pricing-button">Réserver</a>
-                </div>
-                
-                <div class="pricing-plan">
-                    <img src="/public/nuitée.svg" alt="" class="pricing-img">
-                    <h2 class="pricing-header">Nuitée</h2>
-                    <ul class="pricing-features">
-                    <li class="pricing-features-item">De 12H à 12H</li>
-                    <li class="pricing-features-item">L'électricité est à votre charge</li>
-                    </ul>
-                    <span class="pricing-price">17.000 FCFA</span>
-                    <a href="#/" class="pricing-button is-featured">Réserver</a>
-                </div>
-                
-                <div class="pricing-plan">
-                    <img src="/public/annif.svg" alt="" class="pricing-img">
-                    <h2 class="pricing-header">Anniverssaire</h2>
-                    <ul class="pricing-features">
-                    <li class="pricing-features-item">5H de temps</li>
-                    <li class="pricing-features-item">Simple horizontal scalability</li>
-                    </ul>
-                    <span class="pricing-price">15.000 FCFA</span>
-                    <a href="#/" class="pricing-button">Réserver</a>
-                </div>
-                
-                </div>
-            </div>
+  <section id="tarifs" class="tarifs-section">
+    <div class="tarifs-background">
+      <div class="container">
+        <div class="section-header text-center animate-on-scroll">
+          <h6 class="subtitle">Nos Tarifs</h6>
+          <h2 class="section-title">Des Formules Pour Tous Vos Besoins</h2>
+          <p class="section-intro">
+            Découvrez nos différentes formules adaptées à vos envies et à votre budget
+          </p>
         </div>
-    </section>
+        
+        <div class="pricing-panel animate-on-scroll">
+          
+          <div class="pricing-plan" 
+               v-for="(plan, index) in pricingPlans" 
+               :key="index"
+               :class="{'featured': plan.featured}">
+            <div class="plan-badge" v-if="plan.badge">{{ plan.badge }}</div>
+            <div class="plan-image">
+              <img :src="plan.image" :alt="plan.title" class="pricing-img" />
+            </div>
+            <h3 class="plan-title">{{ plan.title }}</h3>
+            <ul class="plan-features">
+              <li v-for="(feature, i) in plan.features" :key="i" class="plan-feature">
+                {{ feature }}
+              </li>
+            </ul>
+            <div class="plan-price">
+              <span class="currency">FCFA</span>
+              <span class="amount">{{ plan.price.toLocaleString() }}</span>
+            </div>
+            <a :href="plan.link" class="plan-button" :class="{'featured-button': plan.featured}">
+              Réserver
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
+<script setup>
+const pricingPlans = [
+  {
+    title: "Flash",
+    price: 10000,
+    features: [
+      "5 heures de temps",
+      "Cadre intime et chaleureux",
+      "Garage privé inclus"
+    ],
+    image: "/flash.svg",
+    link: "#reservation",
+    badge: "",
+    featured: false
+  },
+  {
+    title: "Nuitée",
+    price: 17000,
+    features: [
+      "De 12H à 12H",
+      "Tout confort premium",
+      "L'électricité est à votre charge"
+    ],
+    image: "/nuitée.svg",
+    link: "#reservation",
+    badge: "Populaire",
+    featured: true
+  },
+  {
+    title: "Anniversaire",
+    price: 15000,
+    features: [
+      "5 heures de temps",
+      "Décoration spéciale",
+      "Ambiance festive"
+    ],
+    image: "/annif.svg",
+    link: "#reservation",
+    badge: "",
+    featured: false
+  }
+];
+</script>
 
-<style scoped>
+<style scoped lang="scss">
+.tarifs-section {
+  padding: 6rem 0;
+  background-color: white;
+  position: relative;
+}
 
-        section {
-        box-sizing: border-box;
-        font-family: 'Open Sans', sans-serif;
-        }
+.tarifs-background {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background-color: #e51919;
+    z-index: 0;
+  }
+}
 
-        *, *:before, *:after {
-        box-sizing: inherit;
-        }
+.container {
+  position: relative;
+  z-index: 1;
+}
 
-        .background {
-        padding: 0 25px 25px;
-        position: relative;
-        width: 100%;
-        }
+.section-header {
+  margin-bottom: 3.5rem;
+  color: white;
+}
 
-        .background::after {
-        content: '';
-        background: #ff3e3e;
-        background: -moz-linear-gradient(top, #ff3e3e 0%, #ff3e3e 100%);
-        background: -webkit-linear-gradient(top, #ff3e3e 0%,#ff3e3e 100%);
-        background: linear-gradient(to bottom, #ff3e3e 0%,#ff3e3e 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60a9ff', endColorstr='#4394f4',GradientType=0 );
-        height: 350px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 1;
-        }
+.text-center {
+  text-align: center;
+}
 
-        @media (min-width: 900px) {
-        .background {
-            padding: 0 0 25px;
-        }
-        }
+.section-title {
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: white;
+  }
+}
 
-        .container {
-        margin: 0 auto;
-        padding: 50px 0 0;
-        max-width: 960px;
-        width: 100%;
-        }
+.section-intro {
+  max-width: 600px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
 
-        .panel {
-        background-color: #fff;
-        border-radius: 10px;
-        padding: 15px 25px;
-        position: relative;
-        width: 100%;
-        z-index: 10;
-        }
+.pricing-panel {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
 
-        .pricing-table {
-        box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
-        display: flex;
-        flex-direction: column;
-        }
+.pricing-plan {
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+  
+  &.featured {
+    transform: translateY(-20px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 2px solid #e51919;
+    z-index: 2;
+    
+    &:hover {
+      transform: translateY(-25px) scale(1.05);
+    }
+  }
+}
 
-        @media (min-width: 900px) {
-        .pricing-table {
-            flex-direction: row;
-        }
-        }
+.plan-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e51919;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+}
 
-        .pricing-table * {
-        text-align: center;
-        text-transform: uppercase;
-        }
+.plan-image {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
 
-        .pricing-plan {
-        border-bottom: 1px solid #ebd8d8e0;
-        padding: 25px;
-        }
+.plan-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
 
-        .pricing-plan:last-child {
-        border-bottom: none;
-        }
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
 
-        @media (min-width: 900px) {
-        .pricing-plan {
-            border-bottom: none;
-            border-right: 1px solid #ebd8d8e0;
-            flex-basis: 100%;
-            padding: 25px 50px;
-        }
+.plan-feature {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  font-size: 0.95rem;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
 
-        .pricing-plan:last-child {
-            border-right: none;
-        }
-        }
+.plan-price {
+  margin-bottom: 2rem;
+  
+  .currency {
+    display: block;
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 0.25rem;
+  }
+  
+  .amount {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #e51919;
+  }
+}
 
-        .pricing-img {
-        margin-bottom: 25px;
-        max-width: 100%;
-        }
+.plan-button {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  background-color: #f3f3f3;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: #eaeaea;
+  }
+  
+  &.featured-button {
+    background-color: #e51919;
+    color: white;
+    
+    &:hover {
+      background-color: #d31717;
+    }
+  }
+}
 
-        .pricing-header {
-        color: #888;
-        font-weight: 600;
-        letter-spacing: 1px;
-        }
+// Media queries
+@media (max-width: 992px) {
+  .pricing-plan {
+    min-width: 250px;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
 
-        .pricing-features {
-        color: #ff3e3e;
-        font-weight: 600;
-        letter-spacing: 1px;
-        margin: 50px 0 25px;
-        }
-
-        .pricing-features-item {
-        border-top: 1px solid #e1f1ff;
-        font-size: 12px;
-        line-height: 1.5;
-        padding: 15px 0;
-        }
-
-        .pricing-features-item:last-child {
-        border-bottom: 1px solid #e1f1ff;
-        }
-
-        .pricing-price {
-        color: #ff3e3e;
-        display: block;
-        font-size: 32px;
-        font-weight: 700;
-        }
-
-        .pricing-button {
-        border: 1px solid #d88383;
-        border-radius: 10px;
-        color: #ff3e3e;
-        display: inline-block;
-        margin: 25px 0;
-        padding: 15px 35px;
-        text-decoration: none;
-        transition: all 150ms ease-in-out;
-        }
-
-        .pricing-button:hover,
-        .pricing-button:focus {
-        background-color: #e1f1ff;
-        }
-
-        .pricing-button.is-featured {
-        background-color: #ff3e3e;
-        color: #fff;
-        }
-
-        .pricing-button.is-featured:hover,
-        .pricing-button.is-featured:active {
-        background-color: #ff3e3e;
-        }
-
+@media (max-width: 768px) {
+  .tarifs-section {
+    padding: 4rem 0;
+  }
+  
+  .pricing-panel {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pricing-plan {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 3rem;
+    
+    &.featured {
+      transform: translateY(0) scale(1);
+      order: -1;
+      
+      &:hover {
+        transform: translateY(-10px) scale(1);
+      }
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
 </style>
